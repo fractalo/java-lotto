@@ -8,8 +8,18 @@ public class LottoManager {
     private final int bonusNumber;
 
     public LottoManager(Lotto winningLotto, int bonusNumber) {
+        validate(winningLotto, bonusNumber);
         this.winningNumbers = new HashSet<>(winningLotto.getNumbers());
         this.bonusNumber = bonusNumber;
+    }
+
+    private void validate(Lotto winningLotto, int bonusNumber) {
+        if (!Lotto.isLottoNumber(bonusNumber)) {
+            throw new IllegalArgumentException("보너스 번호는 1부터 45 사이의 숫자여야 합니다.");
+        }
+        if (winningLotto.getNumbers().contains(bonusNumber)) {
+            throw new IllegalArgumentException("보너스 번호는 당첨 번호와 중복되면 안됩니다.");
+        }
     }
 
     private long getMatchCount(Lotto lotto) {
