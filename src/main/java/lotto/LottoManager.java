@@ -32,5 +32,7 @@ public class LottoManager {
         return lotto.getNumbers().contains(bonusNumber);
     }
 
-
+    public LottoRank getLottoRank(Lotto lotto) {
+        return LottoRank.getRank(getMatchCount(lotto), isBonusNumberMatched(lotto));
+    }
 }
