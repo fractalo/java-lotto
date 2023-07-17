@@ -8,21 +8,21 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class LottoManagerTest {
+class LottoCheckerTest {
     private static final Lotto winningLotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
-    private static final LottoManager manager = new LottoManager(winningLotto, 7);
+    private static final LottoChecker manager = new LottoChecker(winningLotto, 7);
 
     @DisplayName("보너스 번호가 당첨 번호와 중복되면 예외가 발생한다.")
     @Test
     void createLottoManagerByDuplicatedBonusNumber() {
-        assertThatThrownBy(() -> new LottoManager(winningLotto, 6))
+        assertThatThrownBy(() -> new LottoChecker(winningLotto, 6))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("보너스 번호가 로또 번호의 범위를 벗어난 경우 예외가 발생한다.")
     @Test
     void createLottoManagerByInvalidRangeBonusNumber() {
-        assertThatThrownBy(() -> new LottoManager(winningLotto, 60))
+        assertThatThrownBy(() -> new LottoChecker(winningLotto, 60))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

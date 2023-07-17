@@ -3,11 +3,11 @@ package lotto;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LottoManager {
+public class LottoChecker {
     private final Set<Integer> winningNumbers;
     private final int bonusNumber;
 
-    public LottoManager(Lotto winningLotto, int bonusNumber) {
+    public LottoChecker(Lotto winningLotto, int bonusNumber) {
         validate(winningLotto, bonusNumber);
         this.winningNumbers = new HashSet<>(winningLotto.getNumbers());
         this.bonusNumber = bonusNumber;
