@@ -36,4 +36,10 @@ public class LottoChecker {
     public LottoRank checkLottoRank(Lotto lotto) {
         return LottoRank.getRank(countMatchingNumbers(lotto), isBonusNumberMatched(lotto));
     }
+
+    public LottoResult checkLottoRanks(List<Lotto> lottoList) {
+        LottoResult result = new LottoResult();
+        lottoList.forEach(lotto -> result.addRank(checkLottoRank(lotto)));
+        return result;
+    }
 }
