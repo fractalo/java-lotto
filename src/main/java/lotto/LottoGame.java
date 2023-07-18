@@ -7,7 +7,18 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
+
 public class LottoGame {
+    public void play() {
+        final long purchaseAmount = readPurchaseAmount();
+        final List<Lotto> purchasedLottoList = LottoStore.issueLottos(purchaseAmount);
+        printPurchasedLottoList(purchasedLottoList);
+
+        final LottoChecker lottoChecker = createLottoChecker();
+        final LottoResult result = lottoChecker.checkLottoRanks(purchasedLottoList);
+        printWinningStatistics(result, purchaseAmount);
+    }
+
     private void printPurchasedLottoList(List<Lotto> lottoList) {
         System.out.printf("%d개를 구매했습니다.\n", lottoList.size());
         lottoList.forEach(lotto -> System.out.println(lotto.toString()));
