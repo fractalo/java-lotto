@@ -13,6 +13,13 @@ public class LottoGame {
         lottoList.forEach(lotto -> System.out.println(lotto.toString()));
         System.out.println();
     }
+
+    private LottoChecker createLottoChecker() {
+        Lotto winningLotto = readWinningLotto();
+        int bonusNumber = readBonusNumber();
+        return new LottoChecker(winningLotto, bonusNumber);
+    }
+
     private void printWinningStatistics(LottoResult result, long purchaseAmount) {
         System.out.println("당첨 통계");
         System.out.println("---");
