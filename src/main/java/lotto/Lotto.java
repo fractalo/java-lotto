@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -35,5 +36,14 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return Collections.unmodifiableList(numbers);
+    }
+
+    @Override
+    public String toString() {
+        String joinedNumbers = numbers.stream()
+                .sorted()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
+        return "[" + joinedNumbers + "]";
     }
 }
