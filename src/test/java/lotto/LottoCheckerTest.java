@@ -28,37 +28,37 @@ class LottoCheckerTest {
 
     @Test
     void getRankOfFirstPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 6))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 6))))
                 .isEqualTo(LottoRank.FIRST);
     }
 
     @Test
     void getRankOfSecondPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 7))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 7))))
                 .isEqualTo(LottoRank.SECOND);
     }
 
     @Test
     void getRankOfThirdPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 8))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 2, 3, 4, 5, 8))))
                 .isEqualTo(LottoRank.THIRD);
     }
 
     @Test
     void getRankOfFourthPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 2, 3, 4, 9, 10))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 2, 3, 4, 9, 10))))
                 .isEqualTo(LottoRank.FOURTH);
     }
 
     @Test
     void getRankOfFifthPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 2, 3, 10, 11, 12))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 2, 3, 10, 11, 12))))
                 .isEqualTo(LottoRank.FIFTH);
     }
 
     @Test
     void getRankOfNoPrizeLotto() {
-        assertThat(manager.getLottoRank(new Lotto(List.of(1, 7, 12, 13, 14, 15))))
+        assertThat(manager.checkLottoRank(new Lotto(List.of(1, 7, 12, 13, 14, 15))))
                 .isEqualTo(LottoRank.NO_RANK);
     }
 }

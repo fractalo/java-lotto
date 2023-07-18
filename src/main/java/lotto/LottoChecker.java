@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class LottoChecker {
@@ -22,7 +23,7 @@ public class LottoChecker {
         }
     }
 
-    private long getMatchCount(Lotto lotto) {
+    private long countMatchingNumbers(Lotto lotto) {
         return lotto.getNumbers().stream()
                 .filter(winningNumbers::contains)
                 .count();
@@ -32,7 +33,7 @@ public class LottoChecker {
         return lotto.getNumbers().contains(bonusNumber);
     }
 
-    public LottoRank getLottoRank(Lotto lotto) {
-        return LottoRank.getRank(getMatchCount(lotto), isBonusNumberMatched(lotto));
+    public LottoRank checkLottoRank(Lotto lotto) {
+        return LottoRank.getRank(countMatchingNumbers(lotto), isBonusNumberMatched(lotto));
     }
 }
