@@ -8,6 +8,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 public class LottoGame {
+    private void printPurchasedLottoList(List<Lotto> lottoList) {
+        System.out.printf("%d개를 구매했습니다.\n", lottoList.size());
+        lottoList.forEach(lotto -> System.out.println(lotto.toString()));
+        System.out.println();
+    }
     private void printWinningStatistics(LottoResult result, long purchaseAmount) {
         System.out.println("당첨 통계");
         System.out.println("---");
